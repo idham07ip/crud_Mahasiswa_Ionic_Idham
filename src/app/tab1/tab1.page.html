@@ -1,0 +1,45 @@
+<ion-header>
+    <ion-toolbar color="primary">
+        <ion-title>
+            Data CRUD Mahasiswa
+        </ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+<ion-card>
+  <ion-card-content>
+
+      <table class="table table-success table-striped">
+        <thead class="table mb-0">
+          <tr>
+              <th>No.</th>
+              <th>NPM</th>
+              <th>Nama</th>
+              <th>Jurusan</th>
+              <th>Prodi</th>
+              <th>Kelas</th>
+          </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let siswa of GETMahasiwa; let i=index;">
+              <td>{{i+1}}</td>
+              <td hidden>{{siswa.id}}</td>
+              <td>{{siswa.npm}}</td>
+              <td>{{siswa.nama}}</td>
+              <td>{{siswa.jurusan}}</td>
+              <td>{{siswa.prodi}}</td>
+              <td>{{siswa.kelas}}</td>
+            <td>
+              <ion-button type="submit" routerLink="/updatedelete/{{siswa.id}}" expand="block" shape="round" color="warning"><ion-icon name="create-sharp"></ion-icon></ion-button>
+              <ion-button type="submit" shape="round" expand="block" color="danger" (click)="deleteData(siswa.npm)"><ion-icon name="trash-sharp"></ion-icon></ion-button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+        </ion-card-content>
+  </ion-card>
+
+</ion-content>
